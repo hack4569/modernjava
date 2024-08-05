@@ -10,8 +10,10 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
-@SpringBootTest
 public class StreamTest {
+    @Test
+    void contextLoads() {
+    }
     private List<Dish> menu;
 
     @BeforeEach
@@ -43,10 +45,10 @@ public class StreamTest {
     void 모든쌍의_리스트() {
         List<Integer> list1 = Arrays.asList(1,2,3);
         List<Integer> list2 = Arrays.asList(3,4);
-//        List<int[]> pairs = list1.stream()
-//                .map(i -> list2.stream()
-//                        .map(j -> new int[]{i, j})
-//                )
-//                .collect(toList());
+        List<int[]> pairs = list1.stream()
+                .flatMap(i -> list2.stream()
+                        .map(j -> new int[]{i, j})
+                )
+                .collect(toList());
     }
 }

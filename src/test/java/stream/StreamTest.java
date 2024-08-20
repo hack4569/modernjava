@@ -20,7 +20,7 @@ public class StreamTest {
     private List<Dish> menu;
 
     @BeforeEach
-    public void 호출할때마다(){
+    public void 초기화(){
         menu = Arrays.asList(
                 new Dish("pork", false, 800, Dish.Type.MEAT),
                 new Dish("beef", false, 300, Dish.Type.MEAT),
